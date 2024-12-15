@@ -27,26 +27,17 @@
    - `EXPORTER_PORT`: Порт для экспортера (по умолчанию: `8000`).
 
 ## Использование
-
-1. Запустите экспортер:
+1. Настройте Prometheus для сбора метрик от экспортера.
+2. Запустите экспортер:
    ```bash
    EXPORTER_HOST=localhost EXPORTER_PORT=8000 python exporter.py
    ```
 
-2. Перейдите на страницу метрик в браузере или используйте curl:
+3. Перейдите на страницу метрик в браузере или используйте curl:
    ```bash
    curl http://localhost:8000/
    ```
 
-3. Настройте Prometheus для сбора метрик от экспортера. Добавьте следующий джоб в файл `prometheus.yml`:
-   ```yaml
-   scrape_configs:
-     - job_name: 'system_metrics'
-       static_configs:
-         - targets: ['localhost:8000']
-   ```
-
-4. Перезапустите Prometheus, чтобы применить изменения.
 
 ## Метрики
 
